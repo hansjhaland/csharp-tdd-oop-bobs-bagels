@@ -26,6 +26,10 @@ namespace exercise.main
             {
                 return false;
             }
+            if (IsFull)
+            {
+                return false;
+            }
             _items.Add(product);
             return true;
         }
@@ -37,6 +41,6 @@ namespace exercise.main
 
         public List<IProduct> Items { get {return _items;} }
 
-        public bool IsFull { get; }
+        public bool IsFull { get { return _items.Count >= _capacity; } }
     }
 }
