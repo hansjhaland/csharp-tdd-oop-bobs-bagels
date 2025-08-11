@@ -35,10 +35,13 @@ public class Tests
 
         basket.Add(onionBagel);
 
+        // Tests both User story 1 and 2
         bool success = basket.Remove(onionBagel);
         bool fail = basket.Remove(plainBagel);
 
         Assert.True(success);
         Assert.False(fail);
     }
+
+
 }
