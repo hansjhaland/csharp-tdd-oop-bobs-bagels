@@ -62,4 +62,32 @@ public class Tests
         Assert.True(isFull);
         Assert.False(fail);
     }
+
+    [Test]
+    public void IncreaseCapacityTest()
+    {
+        int initialCapacity = 2;
+        Basket basket = new Basket(initialCapacity);
+        IProduct onionBagel = new Bagel("BGLO", 0.49, "Bagel", "Onion");
+        IProduct plainBagel = new Bagel("BGLP", 0.39, "Bagel", "Plain");
+        IProduct everythingBagel = new Bagel("BGLE", 0.49, "Bagel", "Everything");
+
+        basket.Add(onionBagel);
+        basket.Add(plainBagel);
+        bool fail = basket.Add(everythingBagel);
+
+        int newInvalidCapacity = 1;
+        bool capacityNotIncreased = basket.ChangeCapacity(newInvalidCapacity);
+        int newCapacity = 4;
+        bool capacityIncreased = basket.ChangeCapacity(newCapacity);
+        bool success = basket.Add(everythingBagel);
+        bool isFull = basket.IsFull;
+
+        Assert.False(fail);
+        Assert.False(capacityNotIncreased);
+        Assert.True(capacityIncreased);
+        Assert.True(success);
+        Assert.False(isFull);
+        Assert.That(basket.Capacity, Is.EqualTo(newCapacity));
+    }
 }

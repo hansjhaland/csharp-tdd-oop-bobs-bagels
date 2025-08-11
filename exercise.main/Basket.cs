@@ -39,8 +39,14 @@ namespace exercise.main
             return _items.Remove(product);
         }
 
+        public bool ChangeCapacity(int newCapacity)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<IProduct> Items { get {return _items;} }
 
         public bool IsFull { get { return _items.Count >= _capacity; } }
+        public int Capacity {  get { return _capacity; } }
     }
 }
