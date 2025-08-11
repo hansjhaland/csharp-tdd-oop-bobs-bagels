@@ -31,7 +31,7 @@ public class Tests
     {
         Basket basket = new Basket();
         IProduct onionBagel = new Bagel("BGLO", 0.49, "Bagel", "Onion");
-        IProduct plainBagel = new Bagel("BGLO", 0.39, "Bagel", "Plain");
+        IProduct plainBagel = new Bagel("BGLp", 0.39, "Bagel", "Plain");
 
         basket.Add(onionBagel);
 
@@ -41,5 +41,27 @@ public class Tests
 
         Assert.True(success);
         Assert.False(fail);
+    }
+
+    [Test]
+    public void BasketIsFullTest()
+    {
+        int capacity = 2;
+        Basket basket = new Basket(capacity);
+        IProduct onionBagel = new Bagel("BGLO", 0.49, "Bagel", "Onion");
+        IProduct plainBagel = new Bagel("BGLP", 0.39, "Bagel", "Plain");
+        IProduct everythingBagel = new Bagel("BGLE", 0.49, "Bagel", "Everything");
+
+        bool success1 = basket.Add(onionBagel);
+        bool success2 = basket.Add(plainBagel);
+        bool isFull = basket.IsFull;
+        bool fail = basket.Add(everythingBagel);
+
+        Assert.True(success1);
+        Assert.True(success2);
+        Assert.True(isFull);
+        Assert.False(fail);
+
+
     }
 }
