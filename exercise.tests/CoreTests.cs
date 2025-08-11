@@ -12,14 +12,17 @@ public class Tests
         IProduct coffee = new Coffee();
         IProduct filling = new Filling();
 
-        basket.Add(bagel);
-        basket.Add(coffee);
+        bool success1 = basket.Add(bagel);
+        bool success2 = basket.Add(coffee);
         // Don't want to allow directly adding filling.
         // Need to be added via bagel.
-        basket.Add(filling);
+        bool fail = basket.Add(filling);
 
         Assert.True(basket.Items.Contains(bagel));
+        Assert.True(success1);
         Assert.True(basket.Items.Contains(coffee));
+        Assert.True(success2);
         Assert.False(basket.Items.Contains(filling));
+        Assert.False(fail);
     }
 }

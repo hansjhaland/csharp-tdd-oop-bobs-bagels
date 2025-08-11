@@ -8,10 +8,15 @@ namespace exercise.main
 {
     public class Basket
     {
-        private List<IProduct> _items;
-        public void Add(IProduct bagel)
+        private List<IProduct> _items = new List<IProduct>();
+        public bool Add(IProduct product)
         {
-            throw new NotImplementedException();
+            if (product is Filling)
+            {
+                return false;
+            }
+            _items.Add(product);
+            return true;
         }
         public List<IProduct> Items { get {return _items;} }
     }
