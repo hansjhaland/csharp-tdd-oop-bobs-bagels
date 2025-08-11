@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace exercise.main
 {
-    public class Filling : IProduct
+    public class Coffee : IProduct
     {
         public string SKU => throw new NotImplementedException();
 

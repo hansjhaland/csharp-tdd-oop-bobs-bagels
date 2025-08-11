@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace exercise.main
 {
-    internal interface IProduct
+    public interface IProduct
     {
+        string SKU { get; }
+        double Price { get; }
+        string Name { get; }
+        string Variant  { get; }
     }
 }
