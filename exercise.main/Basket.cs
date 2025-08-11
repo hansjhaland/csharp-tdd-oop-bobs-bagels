@@ -18,6 +18,12 @@ namespace exercise.main
             _items.Add(product);
             return true;
         }
+
+        public bool Remove(IProduct product)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<IProduct> Items { get {return _items;} }
     }
 }

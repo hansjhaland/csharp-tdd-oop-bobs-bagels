@@ -25,4 +25,20 @@ public class Tests
         Assert.False(basket.Items.Contains(filling));
         Assert.False(fail);
     }
+
+    [Test]
+    public void RemoveProductFromBasketTest()
+    {
+        Basket basket = new Basket();
+        IProduct onionBagel = new Bagel("BGLO", 0.49, "Bagel", "Onion");
+        IProduct plainBagel = new Bagel("BGLO", 0.39, "Bagel", "Plain");
+
+        basket.Add(onionBagel);
+
+        bool success = basket.Remove(onionBagel);
+        bool fail = basket.Remove(plainBagel);
+
+        Assert.True(success);
+        Assert.False(fail);
+    }
 }
