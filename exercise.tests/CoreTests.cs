@@ -7,7 +7,8 @@ public class Tests
     [Test]
     public void AddProductToBasketTest()
     {
-        Basket basket = new Basket();
+        int capacity = 10;
+        Basket basket = new Basket(capacity);
         IProduct bagel = new Bagel();
         IProduct coffee = new Coffee();
         IProduct filling = new Filling();
@@ -29,7 +30,8 @@ public class Tests
     [Test]
     public void RemoveProductFromBasketTest()
     {
-        Basket basket = new Basket();
+        int capacity = 10;
+        Basket basket = new Basket(capacity);
         IProduct onionBagel = new Bagel("BGLO", 0.49, "Bagel", "Onion");
         IProduct plainBagel = new Bagel("BGLp", 0.39, "Bagel", "Plain");
 

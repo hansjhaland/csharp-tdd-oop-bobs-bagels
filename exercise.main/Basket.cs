@@ -41,11 +41,16 @@ namespace exercise.main
 
         public bool ChangeCapacity(int newCapacity)
         {
-            throw new NotImplementedException();
+            if (newCapacity < _items.Count) 
+            {
+                return false;
+            }
+            _capacity = newCapacity;
+            return true;
+
         }
 
         public List<IProduct> Items { get {return _items;} }
-
         public bool IsFull { get { return _items.Count >= _capacity; } }
         public int Capacity {  get { return _capacity; } }
     }
