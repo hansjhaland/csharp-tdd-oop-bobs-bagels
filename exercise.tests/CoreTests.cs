@@ -92,4 +92,23 @@ public class Tests
         Assert.False(isFull);
         Assert.That(basket.Capacity, Is.EqualTo(newCapacity));
     }
+    [Test]
+    public void CalculateTotalBasketCostTest()
+    {
+        int capacity = 10;
+        double targetTotalBasketCost = 6;
+
+        Basket basket = new Basket(capacity);
+        IProduct onionBagel = new Bagel("BGLO", 1, "Bagel", "Onion");
+        IProduct plainBagel = new Bagel("BGLP", 2, "Bagel", "Plain");
+        IProduct everythingBagel = new Bagel("BGLE", 3, "Bagel", "Everything");
+
+        basket.Add(onionBagel);
+        basket.Add(plainBagel);
+        basket.Add(everythingBagel);
+
+        double totalCost = basket.CalculateTotalCost();
+
+        Assert.That(totalCost, Is.EqualTo(targetTotalBasketCost));
+    }
 }

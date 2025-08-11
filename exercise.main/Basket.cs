@@ -50,6 +50,11 @@ namespace exercise.main
 
         }
 
+        public double CalculateTotalCost()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<IProduct> Items { get {return _items;} }
         public bool IsFull { get { return _items.Count >= _capacity; } }
         public int Capacity {  get { return _capacity; } }
