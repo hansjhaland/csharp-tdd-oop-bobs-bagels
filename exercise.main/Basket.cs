@@ -21,7 +21,7 @@ namespace exercise.main
 
         public bool Remove(IProduct product)
         {
-            throw new NotImplementedException();
+            return _items.Remove(product);
         }
 
         public List<IProduct> Items { get {return _items;} }
