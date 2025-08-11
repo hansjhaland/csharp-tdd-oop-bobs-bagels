@@ -4,7 +4,7 @@ using exercise.main;
 
 public class Tests
 {
-    [Test]
+    [Test] // User Story 1
     public void AddProductToBasketTest()
     {
         int capacity = 10;
@@ -27,7 +27,7 @@ public class Tests
         Assert.False(fail);
     }
 
-    [Test]
+    [Test] // User Story 2 and 5
     public void RemoveProductFromBasketTest()
     {
         int capacity = 10;
@@ -37,7 +37,6 @@ public class Tests
 
         basket.Add(onionBagel);
 
-        // Tests both User story 2 and 5
         bool success = basket.Remove(onionBagel);
         bool fail = basket.Remove(plainBagel);
 
@@ -45,7 +44,7 @@ public class Tests
         Assert.False(fail);
     }
 
-    [Test]
+    [Test] // User Story 3
     public void BasketIsFullTest()
     {
         int capacity = 2;
@@ -65,7 +64,7 @@ public class Tests
         Assert.False(fail);
     }
 
-    [Test]
+    [Test] // User Story 4
     public void IncreaseCapacityTest()
     {
         int initialCapacity = 2;
@@ -92,7 +91,7 @@ public class Tests
         Assert.False(isFull);
         Assert.That(basket.Capacity, Is.EqualTo(newCapacity));
     }
-    [Test]
+    [Test] // User Story 6
     public void CalculateTotalBasketCostTest()
     {
         int capacity = 10;
