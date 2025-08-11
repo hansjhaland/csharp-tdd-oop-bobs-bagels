@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,12 +27,12 @@ namespace exercise.main
 
         }
 
-        public string SKU => throw new NotImplementedException();
+        public string SKU { get { return _sku; } }
 
-        public double Price => throw new NotImplementedException();
+        public double Price {  get { return _price; } }
 
-        public string Name => throw new NotImplementedException();
+        public string Name {  get { return _name; } }
 
-        public string Variant => throw new NotImplementedException();
+        public string Variant {  get { return _variant; } }
     }
 }

@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
-namespace exercise.main
-{
+namespace exercise.main 
+{ 
     public class Filling : IProduct
     {
-        public string SKU => throw new NotImplementedException();
+        private string _sku;
+        private double _price;
+        private string _name;
+        private string _variant;
+        public string SKU { get { return _sku; } }
 
-        public double Price => throw new NotImplementedException();
+        public double Price { get { return _price; } }
 
-        public string Name => throw new NotImplementedException();
+        public string Name { get { return _name; } }
 
-        public string Variant => throw new NotImplementedException();
+        public string Variant { get { return _variant; } }
     }
 }

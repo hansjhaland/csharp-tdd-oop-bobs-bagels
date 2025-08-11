@@ -52,7 +52,7 @@ namespace exercise.main
 
         public double CalculateTotalCost()
         {
-            throw new NotImplementedException();
+            return _items.Sum(product => product.Price);
         }
 
         public List<IProduct> Items { get {return _items;} }

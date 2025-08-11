@@ -109,6 +109,7 @@ public class Tests
 
         double totalCost = basket.CalculateTotalCost();
 
+        // TODO: Update later when fillings are implemented
         Assert.That(totalCost, Is.EqualTo(targetTotalBasketCost));
     }
 }
