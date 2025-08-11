@@ -91,6 +91,7 @@ public class Tests
         Assert.False(isFull);
         Assert.That(basket.Capacity, Is.EqualTo(newCapacity));
     }
+
     [Test] // User Story 6
     public void CalculateTotalBasketCostTest()
     {
@@ -110,5 +111,15 @@ public class Tests
 
         // TODO: Update later when fillings are implemented
         Assert.That(totalCost, Is.EqualTo(targetTotalBasketCost));
+    }
+
+    [Test] // User Story 7
+    public void SeeProductPriceTest()
+    {
+        double price = 0.49;
+        IProduct onionBagel = new Bagel("BGLO", price, "Bagel", "Onion");
+
+        Assert.That(onionBagel.Price, Is.EqualTo(price));   
+
     }
 }
