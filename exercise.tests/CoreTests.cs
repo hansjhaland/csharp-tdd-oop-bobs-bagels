@@ -109,7 +109,6 @@ public class Tests
 
         double totalCost = basket.CalculateTotalCost();
 
-        // TODO: Update later when fillings are implemented
         Assert.That(totalCost, Is.EqualTo(targetTotalBasketCost));
     }
 
@@ -121,5 +120,50 @@ public class Tests
 
         Assert.That(onionBagel.Price, Is.EqualTo(price));   
 
+    }
+
+    [Test] // User Story 8
+    public void AddFillingToBagelTest()
+    {
+        int capacity = 10;
+        Basket basket = new Basket(capacity);
+        Bagel onionBagel = new Bagel("BGLO", 1, "Bagel", "Onion");
+        Bagel plainBagel = new Bagel("BGLP", 2, "Bagel", "Plain");
+        Filling baconFilling = new Filling("FILB", 2, "Filling", "Bacon");
+        Filling eggFilling = new Filling("FILE", 1, "Filling", "Egg");
+
+        bool success1 = onionBagel.AddFilling(baconFilling);
+        bool success2 = onionBagel.AddFilling(eggFilling);
+
+        Assert.That(onionBagel.Fillings.Count, Is.EqualTo(2));
+        Assert.That(success1 && success2, Is.True);
+        Assert.That(plainBagel.Fillings.Count, Is.EqualTo(0));
+    }
+
+    [Test]
+    public void CalculateTotalCostWithFillingTest()
+    {
+        int capacity = 10;
+        double targetTotalCost = 9;
+
+        Basket basket = new Basket(capacity);
+
+        Bagel onionBagel = new Bagel("BGLO", 1, "Bagel", "Onion");
+        Bagel plainBagel = new Bagel("BGLP", 2, "Bagel", "Plain");
+        Bagel everythingBagel = new Bagel("BGLE", 3, "Bagel", "Everything");
+
+        Filling baconFilling = new Filling("FILB", 2, "Filling", "Bacon");
+        Filling eggFilling = new Filling("FILE", 1, "Filling", "Egg");
+
+        onionBagel.AddFilling(baconFilling);
+        plainBagel.AddFilling(eggFilling);
+
+        basket.Add(onionBagel);
+        basket.Add(plainBagel);
+        basket.Add(everythingBagel);
+
+        double totalCost = basket.CalculateTotalCost();
+
+        Assert.That(totalCost, Is.EqualTo(targetTotalCost));
     }
 }

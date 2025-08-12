@@ -12,5 +12,6 @@ namespace exercise.main
         double Price { get; }
         string Name { get; }
         string Variant  { get; }
+
     }
 }
