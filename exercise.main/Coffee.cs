@@ -13,6 +13,20 @@ namespace exercise.main
         private double _price;
         private string _name;
         private string _variant;
+
+        public Coffee(string sku, double price, string name, string variant)
+        {
+            _sku = sku;
+            _price = price;
+            _name = name;
+            _variant = variant;
+        }
+
+        public Coffee()
+        {
+            
+        }
+
         public string SKU { get { return _sku; } }
 
         public double Price { get { return _price; } }

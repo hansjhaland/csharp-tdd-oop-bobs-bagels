@@ -213,8 +213,8 @@ public class Tests
         Inventory inventory = new Inventory();
         int numberOfFillings = 6;
 
-        List<Filling> allFillingsPrice = inventory.AllFillingsPrice();
+        Dictionary<string, double> allFillingsPrice = inventory.AllFillingsPrice();
 
-        Assert.That(allFillingsPrice.Count, Is.EqualTo(numberOfFillings));
+        Assert.That(allFillingsPrice.Values.Count, Is.EqualTo(numberOfFillings));
     }
 }
