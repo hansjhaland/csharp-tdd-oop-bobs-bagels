@@ -166,4 +166,44 @@ public class Tests
 
         Assert.That(totalCost, Is.EqualTo(targetTotalCost));
     }
+
+    [Test]
+    public void AddProductWithFillingToBasketTest()
+    {
+        int capacity = 5;
+        Basket basket = new Basket(capacity);
+
+        Bagel onionBagel = new Bagel("BGLO", 1, "Bagel", "Onion");
+        Bagel plainBagel = new Bagel("BGLP", 2, "Bagel", "Plain");
+
+        Filling baconFilling = new Filling("FILB", 2, "Filling", "Bacon");
+
+        onionBagel.AddFilling(baconFilling);
+
+        basket.Add(onionBagel);
+        basket.Add(plainBagel);
+
+        Assert.That(basket.Items.Count, Is.EqualTo(3));
+    }
+
+    [Test]
+    public void RemoveProductWithFillingFromBasketTest()
+    {
+        int capacity = 5;
+        Basket basket = new Basket(capacity);
+
+        Bagel onionBagel = new Bagel("BGLO", 1, "Bagel", "Onion");
+        Bagel plainBagel = new Bagel("BGLP", 2, "Bagel", "Plain");
+
+        Filling baconFilling = new Filling("FILB", 2, "Filling", "Bacon");
+
+        onionBagel.AddFilling(baconFilling);
+
+        basket.Add(onionBagel);
+        basket.Add(plainBagel);
+
+        basket.Remove(onionBagel);
+
+        Assert.That(basket.Items.Count, Is.EqualTo(1));
+    }
 }
