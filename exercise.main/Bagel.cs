@@ -30,7 +30,8 @@ namespace exercise.main
 
         public bool AddFilling(Filling filling) 
         { 
-            throw new NotImplementedException();
+            _fillings.Add(filling);
+            return true;
         }
 
 

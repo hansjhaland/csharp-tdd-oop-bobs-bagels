@@ -30,6 +30,13 @@ namespace exercise.main
             {
                 return false;
             }
+            if (product is Bagel)
+            {
+                foreach (Filling filling in (product as Bagel).Fillings) 
+                {
+                    _items.Add(filling);
+                }
+            }
             _items.Add(product);
             return true;
         }
