@@ -39,5 +39,19 @@ namespace exercise.main
             }
             return fillingsPrice;
         }
+
+        public bool InStock(IProduct product)
+        {
+            foreach(IProduct item in _stock)
+            {
+                if (product.SKU == item.SKU && product.Price == item.Price && product.Name == item.Name && product.Variant == item.Variant)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public List<IProduct> Stock { get{ return _stock; } }
     }
 }

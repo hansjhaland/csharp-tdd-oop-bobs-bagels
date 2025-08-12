@@ -217,4 +217,31 @@ public class Tests
 
         Assert.That(allFillingsPrice.Values.Count, Is.EqualTo(numberOfFillings));
     }
+
+    [Test] // User story 10
+    public void OnlyAddInStockItemsToBasket()
+    {
+        int capacity = 5;
+
+        Inventory inventory = new Inventory();
+        Basket basket = new Basket(capacity, inventory);
+
+        Bagel onionBagel = new Bagel("BGLO", 0.49, "Bagel", "Onion");
+        Bagel nonExisting1 = new Bagel("BGLQ", 0.49, "Bagel", "Onion");
+        Bagel nonExisting2 = new Bagel("BGLO", 0.49, "Bag", "Onion");
+        Bagel nonExisting3 = new Bagel("BGLO", 1.49, "Bagel", "Onion");
+        Bagel nonExisting4 = new Bagel("BGLO", 0.49, "Bagel", "Cheese");
+
+        bool success = basket.Add(onionBagel);
+        bool fail1 = basket.Add(nonExisting1);
+        bool fail2 = basket.Add(nonExisting2);
+        bool fail3 = basket.Add(nonExisting3);
+        bool fail4 = basket.Add(nonExisting4);
+
+        Assert.That(success, Is.True);
+        Assert.That(fail1, Is.False);
+        Assert.That(fail2, Is.False);
+        Assert.That(fail3, Is.False);
+        Assert.That(fail4, Is.False);
+    }
 }

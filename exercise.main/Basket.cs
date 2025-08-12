@@ -10,6 +10,7 @@ namespace exercise.main
     {
         private List<IProduct> _items = new List<IProduct>();
         private int _capacity;
+        private Inventory _inventory;
         public Basket(int capacity)
         {
             _capacity = capacity;
@@ -20,8 +21,18 @@ namespace exercise.main
             
         }
 
+        public Basket(int capacity, Inventory inventory)
+        {
+            _capacity = capacity;
+            _inventory = inventory;
+        }
+
         public bool Add(IProduct product)
         {
+            if (_inventory != null && !_inventory.InStock(product))
+            {
+                return false;
+            }
             if (product is Filling)
             {
                 return false;
