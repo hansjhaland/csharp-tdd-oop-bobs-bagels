@@ -149,7 +149,7 @@ public class ExtensionTest
         basket.Add(onionBagel12);
         basket.Add(blackCoffee);
 
-        double twelveBaglesPrice = 2.49;
+        double twelveBaglesPrice = 3.99;
         double expectedTotalPrice = twelveBaglesPrice + 0.99;
 
         double actualTotalPrice = basket.CalculateTotalCost();

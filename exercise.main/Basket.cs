@@ -77,6 +77,47 @@ namespace exercise.main
 
         }
 
+        public Dictionary<string, double> GetSpecialOffers()
+        {
+            throw new NotImplementedException();
+            //Dictionary<string, int> productsCount = new Dictionary<string, int>();
+            //foreach (IProduct product in _items)
+            //{
+            //    productsCount[product.SKU]++;
+            //}
+
+            //foreach (KeyValuePair<string, int> pair in productsCount)
+            //{
+            //    if (pair.Value >= 0)
+            //    {
+
+            //        int numTwelveBagelDiscounts = pair.Value / 12;
+            //        int remainder = pair.Value % 12;
+            //    }
+            //}
+        }
+
+        public double CalculateTotalDiscountCost()
+        {
+            throw new NotImplementedException();
+            //List<Tuple<string, double>>? specialOffer = GetSpecialOffers();
+            //if (specialOffer != null)
+            //{
+            //    double discountTotal = 0;
+            //    List<string> discountSKUs = new List<string>();
+            //    foreach (Tuple<string, double> tuple in specialOffer)
+            //    {
+            //        discountSKUs.Add(tuple.Item1);
+            //        discountTotal += tuple.Item2;
+            //    }
+
+
+            //    return discountTotal + remainderTotal;
+            //}
+
+            //return _items.Sum(product => product.Price);
+        }
+
         public double CalculateTotalCost()
         {
             return _items.Sum(product => product.Price);
