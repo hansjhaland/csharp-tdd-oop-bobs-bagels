@@ -43,7 +43,16 @@ namespace exercise.main
 
         public bool Remove(IProduct product)
         {
-            return _items.Remove(product);
+            bool removed = _items.Remove(product);
+            if (!removed) 
+            {
+                return false;
+            }
+            if (product is Bagel)
+            {
+                (product as Bagel).Fillings.ForEach(filling => _items.Remove(filling));
+            }
+            return true;
         }
 
         public bool ChangeCapacity(int newCapacity)
