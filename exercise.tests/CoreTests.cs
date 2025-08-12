@@ -206,4 +206,15 @@ public class Tests
 
         Assert.That(basket.Items.Count, Is.EqualTo(1));
     }
+
+    [Test] // User Story 9
+    public void GetCostOfEachFillingTest()
+    {
+        Inventory inventory = new Inventory();
+        int numberOfFillings = 6;
+
+        List<Filling> allFillingsPrice = inventory.AllFillingsPrice();
+
+        Assert.That(allFillingsPrice.Count, Is.EqualTo(numberOfFillings));
+    }
 }

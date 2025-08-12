@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace exercise.main
 {
-    internal class Inventory
+    public class Inventory
     {
+        public List<Filling> AllFillingsPrice()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
